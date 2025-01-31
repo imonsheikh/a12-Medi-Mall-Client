@@ -19,7 +19,7 @@ const CategorySection = () => {
                         categories.map(category => <Link to={`/categories/${category.categoryName}`}  className=" hover:shadow-lg lg:w-[240px] py-12 bg-blue-50 space-y-2  flex flex-col justify-center items-center" key={category} >
                             <img className=" mb-5 w-16" src={category.image} alt="" />
                             <h1 className=" text-2xl text-center font-semibold">{category.categoryName}</h1>
-                            <p className=" text-xl font-semibold text-custom-custom">{medicines.filter(medicine => medicine.category === category.categoryName).length}</p>
+                            <p className=" text-xl bg-blue-400 w-10 h-8 rounded-lg text-center p-1 font-semibold text-custom-custom">{medicines.filter(medicine => medicine.category === category.categoryName).length}</p>
                         </Link>)
                     }
                 </div>

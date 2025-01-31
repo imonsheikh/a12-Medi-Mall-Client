@@ -106,7 +106,7 @@ const CategoryDetails = () => {
                               className="btn hover:text-white rounded-md bg-white border-2 hover:bg-custom-custom text-xl"
                               onClick={() => handleViewProduct(product)}
                             >
-                              <FiEye />
+                              <FiEye title="View Details" />
                             </button>
                           </td>
                         </tr>
