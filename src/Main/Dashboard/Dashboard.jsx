@@ -15,7 +15,7 @@ const Dashboard = () => {
   const [isSeller, isSellerLoading] = useSeller();
 
   if (isAdminLoading || isSellerLoading) {
-    return <div>Loading...</div>;
+    return <div className="">Loading...</div>;
   }
 
   const adminNav = (
