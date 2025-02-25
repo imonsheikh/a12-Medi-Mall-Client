@@ -90,7 +90,7 @@ const CartItem = ({ product }) => {
               <span className="text-xl font-semibold">Company:</span> {medicineCompany}
             </h2>
             <h1 className="text-lg mt-6">
-              <span className="font-semibold">Mass Unit:</span> {massUnit}
+              <span className="font-semibold">Quantity:</span> {massUnit}
             </h1>
             <h1 className="text-lg">
               <span className="font-semibold">Per Unit Price:</span> ${perUnitPrice}

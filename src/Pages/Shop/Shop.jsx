@@ -185,9 +185,11 @@ const Shop = () => {
                           >
                             {loading ? (
                               <span className="loading w-5 loading-spinner text-white"></span>
-                            ) : (
+                            ) : <> 
+                              <p>Select</p>
                               <FaCartArrowDown />
-                            )}
+                              
+                              </>}
                           </button>
                           <button
                             data-tooltip-id="my-tooltip"

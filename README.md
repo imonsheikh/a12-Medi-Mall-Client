@@ -1,4 +1,4 @@
-WebSite Name: Medi Mall
+# WebSite Name: Medi Mall
 
 Assignment Category: Assignment12_category_021
 

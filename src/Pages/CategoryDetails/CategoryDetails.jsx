@@ -96,7 +96,7 @@ const CategoryDetails = () => {
                               data-tooltip-content="Add Cart"
                               className={`btn hover:text-white rounded-md bg-white text-custom-custom border-2 border-custom-custom hover:bg-custom-custom text-lg`}
                             >
-                              
+                                <p>Select</p>
                                 <FaCartArrowDown />
                               
                             </button>
