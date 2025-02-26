@@ -5,7 +5,9 @@ import { Helmet } from "react-helmet-async";
 
 const SellerHome = () => {
   const { user } = useContext(AuthContext);
-  const [payments] = usePaymentDetails();
+  const [payments] = usePaymentDetails(); 
+  const totalAmountInCents = payments.reduce((total, payment) => total + payment.amount, 0);
+  const totalAmountInDollars = totalAmountInCents / 100;
   const userPayments = payments.filter(
     (paymentData) =>
       paymentData.sellerEmail && paymentData.sellerEmail.includes(user.email)
@@ -35,6 +37,10 @@ const SellerHome = () => {
         <h1 className=" text-3xl lg:text-5xl">WellCome Seller: {user.displayName}</h1>
       </div>
      <div className=" flex lg:flex-row flex-col justify-center items-center gap-7 mt-10">
+        <div className=" bg-blue-200 p-12 text-center space-y-2">
+            <h1 className=" text-3xl">Total Sales Revenue:</h1>
+            <h2 className="text-3xl">${totalAmountInDollars.toFixed(2)}</h2>
+        </div>
         <div className=" bg-green-200 p-12 text-center space-y-2">
             <h1 className=" text-3xl">PAID TOTAL:</h1>
             <h2 className="text-3xl">${totalPaidPrice.toFixed(2)}</h2>
