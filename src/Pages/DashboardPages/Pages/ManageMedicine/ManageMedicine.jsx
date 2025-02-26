@@ -216,7 +216,8 @@ const ManageMedicine = () => {
                     <label className="text-sm font-medium text-gray-700">
                       Discount Percentage
                     </label>
-                    <input
+                    <input 
+                      defaultValue={0}
                       type="number"
                       name="discount"
                       {...register("discountPercentage", { required: true })}
