@@ -89,14 +89,26 @@ const CheckoutForm = ({ totalAmount }) => {
 
         // const currentDate = new Date().toISOString();
 
-        await axiosSecure.post("/save-payment-details", {
+          await axiosSecure.post("/save-payment-details", {
           paymentIntent: payload.paymentIntent,
           userEmail: user.email,
           status: 'pending',
           date: moment().format('MM/DD/YYYY'),
           sellerEmail: carts.map(item => item.sellerEmail),
           medicineName:carts.map(item=>item.medicineName),
-        });
+        });  
+
+        //delete
+              try {
+                  const response = await axiosSecure.delete("/cart", { params: { email: user.email } });
+                  if (response.data.deletedCount > 0) {
+                    Swal.fire("Cleared!", "Your cart has been cleared.", "success");
+                    refetch();
+                  }
+                } catch (error) {
+                  console.error("Error clearing cart:", error);
+                  Swal.fire("Error!", "Failed to clear the cart.", "error");
+                } 
 
         Swal.fire({
           position: "center",
