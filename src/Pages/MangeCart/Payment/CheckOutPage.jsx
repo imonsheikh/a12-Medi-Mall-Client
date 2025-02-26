@@ -4,11 +4,13 @@ import { useLocation } from 'react-router-dom';
 import CheckoutForm from './CheckOutFrom';
 import { Helmet } from 'react-helmet-async';
 
-const stripePromise = loadStripe('pk_test_51PNCFyEPhxEoR7aayPKRAIsWy0P7QgMqNC6uBEAnqSptC8MZ8hkdOTgDMXVH05C4s6u3Xw1YMuScrHOgkUV1JjYV00U30ZPWtf');
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
 const CheckoutPage = () => {
   const location = useLocation();
-  const totalAmount = location.state?.totalAmount || 0;
+  const totalAmount = location.state?.totalAmount || 0; 
+  // console.log(totalAmount);
+  
 
   return (
     <div className=" px-4 sm:px-6 lg:px-8">

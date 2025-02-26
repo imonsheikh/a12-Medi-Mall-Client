@@ -6,37 +6,71 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import useCart from "../../../Hooks/useCart";
 import moment from "moment/moment";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 // eslint-disable-next-line react/prop-types
 const CheckoutForm = ({ totalAmount }) => {
   const { user, loading } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure()
   const stripe = useStripe();
   const elements = useElements();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState(false);
-  const [succeeded, setSucceeded] = useState(false);
-  const [carts] = useCart()
+  const [succeeded, setSucceeded] = useState(false); 
+  const [clientSecret, setClientSecret] = useState()
+  const [carts, refetch] = useCart()
 
   useEffect(() => {
     if (!user && !loading) {
       navigate("/login");
+    } 
+    if(totalAmount > 0){
+      axiosSecure.post("/create-payment-intent", {
+        amount: totalAmount,
+        email: user.email
+      })
+      .then(res => {
+        console.log(res.data.clientSecret);
+        setClientSecret(res.data.clientSecret)
+      }) 
+
     }
-  }, [user, loading, navigate]);
+
+  }, [totalAmount, user, loading, navigate, axiosSecure]);
 
   
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setProcessing(true);
+    setProcessing(true); 
+   
+    //Validation 
+       if(!stripe || !elements ){
+        return 
+       }   
 
-    try {
-      const {
-        data: { clientSecret },
-      } = await axios.post("https://medi-mall-server.vercel.app/create-payment-intent", {
-        amount: totalAmount,
-        email: user.email,
-      });
+       const card = elements.getElement(CardElement) 
+
+       if(card === null){
+           return
+       } 
+
+    try {  
+
+       //1.CreatePayment
+    const {error, paymentMethod} = await stripe.createPaymentMethod({
+      type: 'card',
+      card
+    }) 
+    if(error){
+      console.log('payment error', error);
+      setError(error.message)
+    }else{
+      console.log('payment method', paymentMethod);
+      setError('')
+    } 
+ 
 
       const payload = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -50,12 +84,12 @@ const CheckoutForm = ({ totalAmount }) => {
       } else {
         setError(null);
         setProcessing(false);
-        setSucceeded(true);
+        setSucceeded(true); 
         console.log("Payment succeeded:", payload.paymentIntent);
 
         // const currentDate = new Date().toISOString();
 
-        await axios.post("https://medi-mall-server.vercel.app/save-payment-details", {
+        await axiosSecure.post("/save-payment-details", {
           paymentIntent: payload.paymentIntent,
           userEmail: user.email,
           status: 'pending',
@@ -70,7 +104,8 @@ const CheckoutForm = ({ totalAmount }) => {
           title: "Your Payment Successful!",
           showConfirmButton: false,
           timer: 1500,
-        });
+        }); 
+        refetch()
         navigate("/invoice", {
           state: { paymentIntent: payload.paymentIntent },
         });

@@ -15,7 +15,7 @@ const AdviceSlider = () => {
   const showAdd = advices.filter(advice=> advice.status === 'accept')
   return (
     <>
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      <Swiper autoplay={true} navigation={true} modules={[Navigation]} className="mySwiper">
         {showAdd.map((advice) => (
           <SwiperSlide key={advice}>
             <div className="hero lg:my-20">
