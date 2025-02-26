@@ -1,46 +1,55 @@
-# WebSite Name: Medi Mall
+**WebSiteName**: Medi Mall
 
-Assignment Category: Assignment12_category_021
+**Assignment Category:** Assignment12_category_021
 
-Website Category: Multi-Vendor Medicine Selling E-commerce Website
+**Website Category:** Multi-Vendor Medicine Selling E-commerce Website 
 
+> [Admin:]
+> Admin email: admin11@gmail.com
+> Admin password: Admin11
 
-Some bullet points features and characteristics for this website :-
+> [Seller:]
+> Seller email: seller11@gmail.com
+> Seller password: Seller11
 
-1.Multi-Vendor Platform: Allows multiple vendors to list and sell their medicines.
+**Front-end Live Site Link**: [https://multi-vendor-medicine.web.app/](https://multi-vendor-medicine.web.app/)
 
-2.User-Friendly Interface: Easy-to-navigate design for both vendors and customers.
+## Some bullet points features and characteristics for this website :-
 
-3.Secure Payment Gateway: Ensures safe and secure transactions for buyers and sellers.
+1. Multi-Vendor Platform: Allows multiple vendors to list and sell their medicines.
 
-4.Vendor Dashboard: Comprehensive dashboard for vendors to manage their inventory, orders, and sales.
+2. User-Friendly Interface: Easy-to-navigate design for both vendors and customers.
 
-5.Advanced Search and Filter Options: Helps customers find the medicines they need quickly and efficiently.
+3. Secure Payment Gateway: Ensures safe and secure transactions for buyers and sellers.
 
-6.Discounts and Offers: Regular promotions and discounts available for customers.
+4. Vendor Dashboard: Comprehensive dashboard for vendors to manage their inventory, orders, and sales.
 
-7.Mobile-Friendly Design: Optimized for mobile devices to ensure a seamless shopping experience on the go.
+5. Advanced Search and Filter Options: Helps customers find the medicines they need quickly and efficiently.
 
-8.A responsive user friendly desing.
+6. Discounts and Offers: Regular promotions and discounts available for customers.
 
-9.For Payment a very easy stripe method.
+7. Mobile-Friendly Design: Optimized for mobile devices to ensure a seamless shopping experience on the go.
 
-10.Full Site Protected with json web token
+8. A responsive user friendly desing.
 
-In this website used npm package name:-
+9. For Payment a very easy stripe method.
 
-1.Json Web Token(JWT)
+10. Full Site Protected with json web token
 
-2.React Tanstack query
+## In this website used npm package name:-
 
-3.React Hook Form
+1. Json Web Token(JWT)
 
-4.React-Export-Table-to-Excel
+2. React Tanstack query
 
-5.React to pdf
+3. React Hook Form
 
-6.React Helmet
+4. React-Export-Table-to-Excel
 
-7.React swiper slider
+5. React to pdf
+
+6. React Helmet
+
+7. React swiper slider
 
 8.React Date Pecker
