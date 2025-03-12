@@ -18,7 +18,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const navbar = document.getElementById('navbar');
       if (window.scrollY > 0) {
-        navbar.classList.add('shadow-lg');
+        navbar.classList.add('shadow-lg'); 
       } else {
         navbar.classList.remove('shadow-lg');
       }
@@ -39,7 +39,7 @@ const Navbar = () => {
             isActive
               ? "bg-[#f99a00] mr-6 text-white p-[6px] px-3 rounded-md  font-semibold text-lg"
               : isPending
-              ? "pending"
+              ? "pending "
               : "text-lg mr-6 font-bold"
           }
           to="/"

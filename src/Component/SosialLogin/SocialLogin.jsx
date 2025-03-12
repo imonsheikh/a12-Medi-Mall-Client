@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import usePublicAxios from "../../Hooks/usePublicAxios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const SocialLogin = () => {
   const axiosPublic = usePublicAxios();
@@ -20,7 +21,8 @@ const SocialLogin = () => {
           role: "user",
         };
         axiosPublic.post("/users", userInfo).then((res) => {
-          console.log(res.data);
+          console.log(res.data); 
+          toast.success('Login SuccessFul')
           navigate("/");
         });
       })
