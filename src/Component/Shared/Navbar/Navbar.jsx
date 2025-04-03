@@ -137,7 +137,7 @@ const Navbar = () => {
             <div className="dropdown dropdown-end pr-3">
               <div tabIndex={0} role="button" className="">
                 <div className="avatar">
-                  <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <div className="w-12 rounded-full ring ring-offset-2 ring-custom-secondary">
                     <img src={user.photoURL} alt="User Avatar" />
                   </div>
                 </div>
