@@ -4,7 +4,7 @@ import { FaInstagramSquare } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-<div className=' bg-[#FFE8C8]'>
+<div className=' bg-custom-custom'>
 <footer className="footer justify-between px-4  mb-2 mx-auto pt-16 pb-10 rounded-2xl lg:px-64    text-base-content">
       <aside className=''> 
       <img className=" w-[200px] lg:w-[300px]" src={navLogo} alt="" />

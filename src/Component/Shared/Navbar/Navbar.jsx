@@ -37,7 +37,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive, isPending }) =>
             isActive
-              ? "bg-[#f99a00] mr-6 text-white p-[6px] px-3 rounded-md  font-semibold text-lg"
+              ? "bg-custom-custom mr-6 text-white p-[6px] px-3 rounded-md  font-semibold text-lg"
               : isPending
               ? "pending "
               : "text-lg mr-6 font-bold"
@@ -51,7 +51,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive, isPending }) =>
             isActive
-              ? " bg-[#f99a00] mr-6 text-white p-[6px] px-3 rounded-md  font-semibold text-lg "
+              ? " bg-custom-custom mr-6 text-white p-[6px] px-3 rounded-md  font-semibold text-lg "
               : isPending
               ? "pending"
               : " text-lg mr-6   font-bold"
@@ -91,7 +91,7 @@ const Navbar = () => {
   };
 
   return (
-    <div id="navbar" className="navbar sticky top-0 z-40 lg:px-[180px] h-[80px] bg-base-100">
+    <div id="navbar" className="navbar sticky top-0 z-40 lg:px-[180px] h-[80px] bg-custom-custom">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -117,7 +117,7 @@ const Navbar = () => {
             {navLink}
           </ul>
         </div>
-        <img className=" w-[250px]" src={navLogo} alt="" />
+        <Link to='/'><img className=" w-[250px]" src={navLogo} alt="" /></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 flex items-center">
@@ -155,7 +155,7 @@ const Navbar = () => {
               </ul>
             </div>
           ) : (
-            <Link to="/login" className="= py-1 md:px-5 bg-transparent border-2 hover:bg-[#f99a00] hover:text-white text-lg px-3 md:text-2xl font-semibold text-[#f99a00] rounded-md border-[#f99a00]">
+            <Link to="/login" className="= py-1 md:px-5 bg-transparent border-2 hover:bg-custom-custom hover:text-white text-lg px-3 md:text-2xl font-semibold text-custom-custom rounded-md border-custom-custom">
               Join US
             </Link>
           )

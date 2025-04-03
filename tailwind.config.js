@@ -12,7 +12,9 @@ module.exports = {
       },
       colors: {
         custom: {
-          'custom': '#f99a00',
+          'custom': '#E23E57',
+          'secondary': '#88304E',
+          'accent': '#522546',
         },
       },
     },
