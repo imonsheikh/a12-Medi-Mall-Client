@@ -10,9 +10,11 @@ const Main = () => {
 
 
     return (
-        <div>
+        <div className="min-h-screen flex flex-col">
             { noHeaderFooter || <Navbar></Navbar>}
+            <div className="flex-grow">
             <Outlet></Outlet>
+            </div>
             { noHeaderFooter || <Footer></Footer>}
             <Toaster />
         </div>

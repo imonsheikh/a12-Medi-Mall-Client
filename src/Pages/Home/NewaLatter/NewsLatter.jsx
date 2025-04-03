@@ -16,7 +16,7 @@ const NewsLatter = () => {
       </div>
       <div className=" space-y-2">
         <h1 className=" text-2xl font-bold">Follow Us By</h1>
-        <h2 className=" text-blue-400 text-5xl">01712345678</h2>
+        <h2 className=" text-blue-400 text-5xl">01300315569</h2>
         <p className=" text-lg text-custom-custom font-semibold ">Leave a message!</p>
       </div>
     </div>
