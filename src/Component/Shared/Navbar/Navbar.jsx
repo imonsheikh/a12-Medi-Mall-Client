@@ -155,7 +155,7 @@ const Navbar = () => {
               </ul>
             </div>
           ) : (
-            <Link to="/login" className="= py-1 md:px-5 bg-transparent border-2 hover:bg-custom-custom hover:text-white text-lg px-3 md:text-2xl font-semibold text-custom-custom rounded-md border-custom-custom">
+            <Link to="/login" className="= py-1 md:px-5 bg-transparent border-2 text-white hover:bg-custom-custom hover:text-white text-lg px-3 md:text-2xl font-semibold rounded-md border-custom-custom">
               Join US
             </Link>
           )

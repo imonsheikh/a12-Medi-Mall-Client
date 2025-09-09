@@ -10,7 +10,7 @@ const DiscountPerCard = ({product}) => {
     const {user} = useContext(AuthContext)
     const axiosPublic = usePublicAxios();
     const [carts, refetch] = useCart()
-    console.log(carts);
+    // console.log(carts);
     // eslint-disable-next-line react/prop-types
     const {medicineName, genericName, medicineImage, discountPercentage, perUnitPrice} = product;
     const discountedPrice = perUnitPrice / 100 * discountPercentage;

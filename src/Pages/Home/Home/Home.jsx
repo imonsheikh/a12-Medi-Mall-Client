@@ -8,7 +8,7 @@ import NewsLatter from "../NewaLatter/NewsLatter";
 
 const Home = () => {
     const [advices, refetch, isLoading] = UseAdvice();
-    console.log(advices, refetch);
+    // console.log(advices, refetch);
     if(isLoading) {
         return <div className=" min-h-screen flex justify-center items-center">
         <span className="loading mt-28 loading-infinity w-[50px] md:w-[100px] text-custom-custom"></span>

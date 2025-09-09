@@ -2,19 +2,42 @@ import { useForm } from "react-hook-form";
 import { IoMailOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react"; // useEffect যোগ করা হয়েছে
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "../../Component/SosialLogin/SocialLogin";
 import { FaRegEye } from "react-icons/fa";
+import RoleSelectorThree from "../../Component/RoleSelectorThree.jsx";
 
 const Login = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
   const { loginUser } = useContext(AuthContext);
   const location = useLocation();
   const navigete = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  // sample credentials by role
+  const roleCredentials = {
+    user: { email: "user007@mail.com", password: "12345678User" },
+    seller: { email: "seller11@gmail.com", password: "Seller11" },
+    admin: { email: "admin11@gmail.com", password: "Admin11" },
+  };
+
+  const handleRoleChange = (role) => {
+    const creds = roleCredentials[role];
+    if (creds) {
+      setValue("email", creds.email);
+      setValue("password", creds.password);
+    }
+  };
+
+  // Default: autofill as "user" on component mount
+  useEffect(() => {
+    handleRoleChange("user");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // 
 
   const onSubmit = (data) => {
     setLoading(true);
@@ -22,7 +45,7 @@ const Login = () => {
       .then((result) => {
         setLoading(false);
         const token = result.user.stsTokenManager.accessToken;
-        localStorage.setItem('access-token', token);
+        localStorage.setItem("access-token", token);
         toast.success("Successfully logged in!");
         navigete(location?.state ? location.state : "/");
       })
@@ -32,7 +55,7 @@ const Login = () => {
         console.error(error);
       });
   };
-  
+
   return (
     <div className="font-[sans-serif] bg-gray-900 text-[#333] md:h-screen">
       <Helmet>
@@ -66,7 +89,11 @@ const Login = () => {
                 </Link>
               </p>
             </div>
-            <div>
+
+            {/* Role Selector */}
+            <RoleSelectorThree onChange={handleRoleChange} />
+
+            <div className="mt-2">
               <label className="text-xs block mb-2">Email</label>
               <div className="relative flex items-center">
                 <input
@@ -77,7 +104,6 @@ const Login = () => {
                   className="w-full text-sm border-b border-gray-300 focus:border-[#333] px-2 py-3 outline-none"
                   placeholder="Enter email"
                 />
-
                 <p className=" absolute right-2 cursor-pointer">
                   <IoMailOutline />
                 </p>
@@ -89,12 +115,15 @@ const Login = () => {
                 <input
                   {...register("password")}
                   name="password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   required
                   className="w-full text-sm border-b border-gray-300 focus:border-[#333] px-2 py-3 outline-none"
                   placeholder="Enter password"
                 />
-                <p className=" absolute right-2 cursor-pointer">
+                <p
+                  className="absolute right-2 cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
                   <FaRegEye />
                 </p>
               </div>
@@ -116,7 +145,7 @@ const Login = () => {
               or continue with
             </p>
           </form>
-         <SocialLogin></SocialLogin>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>

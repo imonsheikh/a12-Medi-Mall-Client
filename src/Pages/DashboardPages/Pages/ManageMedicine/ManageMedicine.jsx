@@ -23,6 +23,8 @@ const ManageMedicine = () => {
 
   const handleAddMedicine = async (data) => {
     const formData = new FormData();
+    console.log(formData);
+    
     formData.append("image", data.image[0]);
 
     try {
@@ -238,7 +240,7 @@ const ManageMedicine = () => {
             </dialog>
           </div>
         </div>
-        <div className="overflow-x-auto">
+        {/* <div className="overflow-x-auto">
           <table className="table">
             <thead>
               <tr className="bg-custom-custom text-white">
@@ -263,7 +265,7 @@ const ManageMedicine = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </div> */}
       </div>
     </div>
   );
